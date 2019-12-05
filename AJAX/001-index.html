@@ -1,0 +1,34 @@
+<script>
+    $('#id_roomtype').on('change keyup' , function(){
+        console.log("id_roomtype");
+        var $this = $(this);
+        get_room_number($this);
+    });
+    
+    function get_room_number($selector) {
+        var url = "{% url 'residents:get_room_number' %}";
+        var room_type = $selector.val();
+        if(room_type !=''){
+            $.ajax({
+                type : "GET",
+                url : url,
+                dataType : 'json',
+                data : {
+                    id : room_type,
+                },
+                success : function(data){
+                    var status = data['status'];
+                    if (status == "true"){
+                        var room_number = data['room_number'];
+
+                        $('#id_room_number').val(room_number);                            
+                        }
+                    },
+                error : function(data){
+
+                }
+            });
+        }
+    }
+    
+</script>
