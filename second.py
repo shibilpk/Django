@@ -65,8 +65,8 @@ class About(models.Model):
 
 
 # migrate changes into app and database (femme/src/femme)
-python manage.py makemigrations
-python manage.py migrate
+    python manage.py makemigrations
+    python manage.py migrate
 
 # Import About and Register in admin.py
 

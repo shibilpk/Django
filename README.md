@@ -47,6 +47,19 @@
             grant all privileges on database femmepk to shibil;
             \q
             exit
+
+    (setting.py)        
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                'NAME': 'dbname',
+                'USER': 'user',
+                'PASSWORD': 'password',
+                'HOST':'localhost',
+                'PORT': '',
+            }
+        }
+
     2. Create super user
             python manage.py createsuperuser
                 (shibil -> shibil789)
