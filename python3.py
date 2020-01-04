@@ -1,3 +1,10 @@
+#setting up virtual environment (python 3) // CHANGES
+    virtualenv venv -p python3
+    cd src && pip install django && pip install pillow
+    django-admin.py startproject project
+    pip install psycopg2-binary
+
+#MAIN urls.py
 from django.urls import include, path, re_path
 from django.contrib import admin
 from main import views as general_views
@@ -15,8 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('',general_views.app,name='app'),
-    path('app/',general_views.app,name='app'),
-    
+
     path('notification/read/<int:pk>', views.read_notification, name='read_notification'),
 
     path('app/college/', include('college.urls', namespace="college"))
