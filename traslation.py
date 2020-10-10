@@ -55,6 +55,21 @@ Translation
         ('en', _('English')),
         ('ml', _('Malayalam')),
     )
+    
+  <form action="{% url 'set_language' %}" method="POST">
+					{% csrf_token %}
+					<input type="hidden" name="text" value="{{ redirect_to}}">
+					<select name="language" id="">
+						{% get_current_language as LANGUAGE_CODE %}
+						{% get_available_languages as LANGUAGES %}
+						{% get_language_info_list for LANGUAGES as languages %}
+						{% for language in languages %}
+						<option value="{{language.code}}" {%if language.code == LANGUAGE_CODE %} selected {% endif %}>
+							{{language.name_local}}
+						</option>
+						{% endfor %}
+					</select>
+			</form>
 
 
 
