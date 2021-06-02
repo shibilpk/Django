@@ -2,6 +2,11 @@
 
 ## Create a new project
 ### Create <project folder> and enter the folder
+```
+mkdir <project_name>
+cd <project_name>
+```
+
 ### Virtual environment
 
 ```
@@ -118,8 +123,10 @@ find . -path "*/migrations/*.py" -not -name "__init__.py" -delete && find . -pat
 ```
 pip freeze > r.txt
 pip install -r r.txt
-python manage.py loaddata initial_data user_groups permissions notification
 ```
 ### Database export and import
+```
 python manage.py dumpdata > database.json
 python manage.py loaddata database.json
+```
+
