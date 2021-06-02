@@ -100,6 +100,17 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+# Django latest
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_URL = '/static/'
+STATIC_FILE_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = (BASE_DIR / 'static',)
+STATIC_ROOT = (BASE_DIR / 'static'/'static_files')
  ```
 
 ### Create super user
@@ -128,5 +139,6 @@ pip install -r r.txt
 ```
 python manage.py dumpdata > database.json
 python manage.py loaddata database.json
+python manage.py dumpdata --exclude auth.permission --exclude contenttypes.contenttype --exclude sessions.session --exclude admin.logentry --indent 4 > data_base.json
 ```
 
