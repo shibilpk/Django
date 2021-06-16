@@ -11,7 +11,7 @@
             mkdir src
             cd src
     # Install django and create project
-            pip install django==1.11.15
+            pip install django
             pip install pillow psycopg2    (  psycopg2-binary  )
             django-admin.py startproject  <project folder name>
     # Change dir to  <project folder name>
