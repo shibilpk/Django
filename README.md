@@ -127,7 +127,7 @@ python manage.py loaddata initial_data user_groups permissions notification
 
 ### Delete migration
 ```
-find . -path "*/migrations/*.py" -not -name "__init__.py" -delete && find . -path "*/migrations/*.pyc"  -delete
+find . -path "*/migrations/*.py" -not -path "*/venv/*" -not -name "__init__.py" -delete && find . -path "*/migrations/*.pyc" -not -path "*/venv/*"  -delete
 ```
 
 ### Read and write from file
