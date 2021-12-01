@@ -27,3 +27,12 @@ admin.site.register(Registration,RegistrationAdmin)
         <img src="{% static 'umsra_logo.png' %}" height="40px" />
     </a>
 </h1>
+
+#Pagination
+def get_paginated_url(request,kwargs):
+    query = request.GET.copy()
+    for key in kwargs:
+        query[key] = kwargs[key]
+    return f"{request.build_absolute_uri(request.path)}?{query.urlencode()}"
+
+get_paginated_url(request,{'page':instances.previous_page_number()})
