@@ -36,3 +36,8 @@ def get_paginated_url(request,kwargs):
     return f"{request.build_absolute_uri(request.path)}?{query.urlencode()}"
 
 get_paginated_url(request,{'page':instances.previous_page_number()})
+
+{
+   "previous": instances.previous_page_number() if instances.number-1 in paginator.page_range else None,
+   "next": instances.next_page_number() if instances.number+1 in paginator.page_range else None,
+}
